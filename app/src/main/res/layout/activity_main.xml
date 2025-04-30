@@ -5,45 +5,82 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context=".views.MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <EditText
+        android:id="@+id/etFilter"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/rvPeliculas"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cartelera"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/rvPeliculas"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPeliculas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
-        tools:listitem="@layout/item_rv_peliculas"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/llOpciones"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/llOpciones" />
+        tools:listitem="@layout/item_rv_peliculas" />
 
     <LinearLayout
         android:id="@+id/llOpciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingVertical="4dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
+        android:paddingVertical="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvCartelera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            app:cardCornerRadius="8dp"
             android:elevation="8dp"
-            app:cardBackgroundColor="@color/verde_200">
+            app:cardBackgroundColor="@color/verde_200"
+            app:cardCornerRadius="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="Cartelera"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </androidx.cardview.widget.CardView>
 
@@ -52,16 +89,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            app:cardCornerRadius="8dp"
             android:elevation="8dp"
-            app:cardBackgroundColor="@color/black">
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="Populares"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="@color/azul_200"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Top"
+                android:textColor="@color/white" />
 
         </androidx.cardview.widget.CardView>
 

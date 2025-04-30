@@ -28,6 +28,7 @@ class AdapterPeliculas(
         val cvPelicula = itemView.findViewById(R.id.cvPelicula) as CardView
         val ivPoster = itemView.findViewById(R.id.ivPoster) as ImageView
         val pcIndicator = itemView.findViewById(R.id.circular_progress) as CircularProgressIndicator
+
     }
 
    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -53,4 +54,9 @@ class AdapterPeliculas(
    override fun getItemCount(): Int {
        return listaPeliculas.size
    }
+
+    fun actualizarPeliculas( listaPeliculas: List<PeliculaModel>){
+        this.listaPeliculas = listaPeliculas
+        notifyDataSetChanged()
+    }
 }
